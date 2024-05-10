@@ -1,4 +1,4 @@
-.Navbar-content-div {
+.header-content-div {
     max-width: 95rem;
     width: auto;
     margin: 0 auto;
@@ -10,22 +10,22 @@
     }
 }
 
-#Navbar-img{
+#header-img{
     height: 5rem;
     width: auto;
   }
 
   @media (max-width: 800px) {
-    #Navbar-img{
+    #header-img{
       height: 4rem;
     }
   }
-  #Navbar {
+  #header {
     height: max-content;
     font-family: "Montserrat", sans-serif;
     width: 100%;
     background-color: white;
-    padding: 1rem 0;
+    padding: 3rem 0;
     position: sticky;
     z-index: 99;
     top: 0;
@@ -39,24 +39,26 @@
     }
   }
 
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  margin: 0 0.5rem;
+  padding: 0 0.6rem;
+  transition: border-bottom 0.2s;
+  font-size: 20px;
+}
+@media (max-width: 475px) {
   .nav-link {
-    text-decoration: none;
-    color: #333;
-    margin: 0 0.5rem;
-    padding: 0 0.6rem;
-    transition: border-bottom 0.2s;
+    margin: 0 0.2rem;
+    padding: 0 0.2rem;
+    font-size: 1.2rem;
   }
-  @media (max-width: 475px) {
-    .nav-link {
-      margin: 0 0.2rem;
-      padding: 0 0.2rem;
-      font-size: 1.2rem;
-    }
-  }
-  .nav-link:hover {
-    color: #e23d3d;
-    border-bottom: 2px solid #e23d3d;
-  }
-  .nav-link:active {
-    color: #f84848;
-  }
+}
+.nav-link:hover {
+  color: #01A7C2;
+  border-bottom: 2px solid #01A7C2;
+}
+.nav-link:active {
+  color: #01A7C2;
+}
+

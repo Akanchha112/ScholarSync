@@ -3,7 +3,7 @@ import './Navbar.css';
 
 function Navbar(){
     return(
-        <div id="Navbar">
+        <header id="header">
             <div className="Navbar-content-div">
                 <a href="#home-sec">
                     <img
@@ -18,7 +18,7 @@ function Navbar(){
                     <a href="#" className="nav-link">Login</a>
                 </nav>
             </div>
-        </div>
+        </header>
     )
 }
 
