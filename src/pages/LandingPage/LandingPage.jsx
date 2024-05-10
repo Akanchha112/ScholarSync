@@ -1,32 +1,18 @@
 import "./Landing.css"
+import Navbar from '../../components/Navbar';
 const LandingPage = () => {
     return (<>
-        <header id="header">
-            <div className="header-content-div">
-                <a href="#home-sec">
-                    <img
-                        src="https://i.ibb.co/KsztxWq/logo1.png"
-                        alt="Company Logo"
-                        id="header-img"
-                    /></a>
-                <nav id="nav-bar">
-                    <a href="#about" className="nav-link">ABOUT</a>
-                    <a href="#varieties" className="nav-link">VARIETIES</a>
-                    <a href="#our-service" className="nav-link">OUR SERVICE</a>
-                    <a href="#benefits" className="nav-link">BENEFITS</a>
-                </nav>
-            </div>
-        </header>
+        <Navbar />
         <main>
             <section id="home-sec" className="flexible home-sec">
                 <div className="eye-grabber-img">
                     <img src="https://i.ibb.co/T4czpqY/apples-red-fresh-mellow-juicy-perfect-whole-on-white-desk.jpg" alt="Image of Apples" />
                 </div>
                 <div className="eye-grabber">
-                    <h1>Fresh, Crispy, Heavenly.</h1>
+                    <h1>Connect,Learn,Recruit in Academia.</h1>
                     <h2>
-                        100% Organic, vivid varieties of apples grown in Kashmir aka The
-                        Heaven of Earth.
+                    Revolutionizing Academic Collaboration and Recruitment
+
                     </h2>
                     <button className="btn" onclick="window.location.href = '#contact';">
                         Buy Now
@@ -34,26 +20,26 @@ const LandingPage = () => {
                 </div>
             </section>
             <section id="about" className="sec-padding">
-                <h3 className="section-heading">ABOUT US</h3>
+                <h3 className="section-heading">About</h3>
                 <div className="sec-content-div flexible">
                     <p>
-                        We are a group of people with decades of experience in growing and
-                        selling apples. We know what a good apple looks like and how they
-                        are grown. This essential fruit requires a temperate climate, loamy
-                        soil that is rich in organic matter apart from needing proper
-                        drainage and aeration facilities. Lucky for us we live in Kashmir
-                        which is proudly known as paradise of earth is also home to
-                        temperate fruits like apple for which the state is very famous
-                        across globe. The main factor which influence temperate fruit
-                        bearing trees is soil, climate and environment which are highly
-                        favorable and unparalleled in the province of Kashmir. Kashmiri
-                        apples a unique look, taste, flavor, size and color.
+                    In today's fast-paced academic landscape, the need for efficient collaboration 
+                    and streamlined recruitment processes is more pronounced than ever. 
+                    Enter ScholarSync, a groundbreaking platform designed to bridge the gap
+                     between researchers and professors, facilitating seamless connections and 
+                     opportunities within the academic community.ScholarSync is a centralized hub 
+                     where researchers can showcase their expertise, areas of interest, and 
+                     qualifications through detailed profiles. By providing a comprehensive 
+                     overview of their research background, scholars can attract the attention 
+                     of professors seeking talented individuals for fellowships, research positions,
+                     and collaborative projects.
+
                     </p>
-                    <img src="https://i.ibb.co/SyKVC8M/about-img.jpg" alt="A man plucking apples from the tree" />
+                    <img src="https://i.ibb.co/SyKVC8M/about-img.jpg" alt="" />
                 </div>
             </section>
-            <section id="varieties" className="sec-padding">
-                <h3 className="section-heading">VARIETIES</h3>
+            {/* <section id="varieties" className="sec-padding">
+                <h3 className="section-heading">Connect</h3>
                 <div className="sec-content-div flexible">
                     <div className="tile">
                         <img src="https://i.ibb.co/t2x706V/amber.jpg" alt="photo of amber apples" />
@@ -108,10 +94,10 @@ const LandingPage = () => {
                             ripening. It is available till January.
                         </p>
                     </div>
-                </div>
-            </section>
-            <section id="our-service" className="sec-padding">
-                <h3 className="section-heading">OUR SERVICE</h3>
+                </div> connect
+            </section> */}
+            <section id="connect" className="sec-padding">
+                <h3 className="section-heading">Connect</h3>
                 <div className="sec-content-div">
                     <div className="bars">
                         <div className="icon-container">
@@ -149,22 +135,9 @@ const LandingPage = () => {
                     </div>
                 </div>
             </section>
-            <section id="benefits" className="sec-padding">
-                <h3 className="section-heading">BENEFITS</h3>
-                <div className="sec-content-div flexible">
-                    <iframe
-                        id="video"
-                        width="560"
-                        title="Benefits of Apple"
-                        height="315"
-                        src="https://www.youtube.com/embed/W_JOJNztrnI"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                    ></iframe>
-                </div>
-            </section>
+           
             <section className="sec-padding" id="contact">
-                <h3 className="section-heading">CONTACT</h3>
+                <h3 className="section-heading">Contact Us</h3>
                 <div className="sec-content-div flexible">
                     <h6>To make an order or just to know more contact us :</h6>
                     <form
