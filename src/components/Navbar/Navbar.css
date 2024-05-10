@@ -60,4 +60,6 @@
 .nav-link:active {
   color: #01A7C2;
 }
-
+#nav-bar{
+  margin-right: 1rem;
+}
