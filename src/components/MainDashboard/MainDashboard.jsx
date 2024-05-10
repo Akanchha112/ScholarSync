@@ -76,6 +76,40 @@ function MainDashboard(){ return (
                 </div>
             </section>
            
+            <section className="sec-padding" id="aboutUS">
+                <h3 className="section-heading">About Us</h3>
+                <div className="sec-content-div flexible">
+                <div class="container">
+    <div class="card">
+        <div class="card-header">Akanchha Singh</div>
+        <img src="" alt="Image 1" />
+        <div class="card-content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. s.
+        </div>
+        <div class="social-icons">
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">Tarni Balgoher</div>
+        <img src="image2.jpg" alt="Image 2" />
+        <div class="card-content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        </div>
+        <div class="social-icons">
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        </div>
+    </div>
+</div>
+                    
+                </div>
+            </section>
+
             <section className="sec-padding" id="contact">
                 <h3 className="section-heading">Contact Us</h3>
                 <div className="sec-content-div flexible">
