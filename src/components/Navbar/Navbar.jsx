@@ -1,14 +1,14 @@
 import React from 'react';
 import './Navbar.css';
-
+import logo from '../img/logo.png';
 function Navbar(){
     return(
-        <header id="header">
+        <div id="navbar">
             <div className="Navbar-content-div">
                 <a href="#home-sec">
                     <img
-                        src=""
-                        alt="Company Logo"
+                        src={logo}
+                        alt="ScholarSync Logo"
                         id="Navbar-img"
                     /></a> 
                 <nav id="nav-bar">
@@ -18,7 +18,7 @@ function Navbar(){
                     <a href="#" className="nav-link">Login</a>
                 </nav>
             </div>
-        </header>
+        </div>
     )
 }
 
