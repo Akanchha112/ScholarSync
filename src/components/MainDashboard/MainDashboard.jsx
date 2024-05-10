@@ -1,11 +1,12 @@
 import React from 'react';
 import "./MainDashboard.css";
+import research from '../img/research.png';
 
 function MainDashboard(){ return ( 
     <main>
             <section id="home-sec" className="flexible home-sec">
                 <div className="eye-grabber-img">
-                    <img src="" alt="" />
+                    <img src={research} alt="" />
                 </div>
                 <div className="eye-grabber">
                     <h1>Connect,Learn,Recruit in Academia.</h1>
@@ -57,7 +58,7 @@ function MainDashboard(){ return (
                         </div>
                         <div className="txt-container">
                             <h5>Connect</h5>
-                            <p>Join a vibrant community of researchers and professors."
+                            <p>Join a vibrant community of researchers and professors
                             
                             </p>
                         </div>
