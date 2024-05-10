@@ -14,22 +14,23 @@ const SignupPage = () => {
   const [passwordError, setPasswordError] = useState('')
 
   const handleSignUp = async () => {
+    setEmailError('')
+    setPasswordError('')
+    if ('' === email || !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+        setEmailError('Please enter your email')
+        return
+    }
+    if ('' === password || password.length < 7) {
+        setPasswordError('Password length must be 6')
+        return
+    }
+    if(role=="professor"){
+        toast.error("Contact your university to register your mail");
+        return
+    }
     try {
-        setEmailError('')
-        setPasswordError('')
-        if ('' === email || !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-            setEmailError('Please enter your email')
-            return
-        }
-        if ('' === password || password.length < 7) {
-            setPasswordError('Password length must be 6')
-            return
-        }
-        if(role=="professor"){
-            toast.error("Contact your university to register your mail");
-            return
-        }
-    await createUserWithEmailAndPassword(auth,email, password);  //to create user auth
+        
+       await createUserWithEmailAndPassword(auth,email, password);  //to create user auth
       const user = auth.currentUser;
       console.log(user.uid,role);
       
@@ -47,11 +48,13 @@ const SignupPage = () => {
       toast.success(error.msg,{position:"bottom-center"});
       // Handle error
     }
+    setEmail('');
+    setPassword('');
   };
 
 
 
-  
+
   return (
     <div className="signup-container">
       <h2>Sign Up</h2>
