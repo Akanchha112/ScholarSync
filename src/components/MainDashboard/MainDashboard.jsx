@@ -1,11 +1,15 @@
 import React from 'react';
 import "./MainDashboard.css";
+// import twitter from '../img/twitter.png';
+// import email from '../img/email.png';
+// import linkedin from '../img/linkedin.png';
+import research from '../img/research.png';
 
 function MainDashboard(){ return ( 
     <main>
             <section id="home-sec" className="flexible home-sec">
                 <div className="eye-grabber-img">
-                    <img src="" alt="" />
+                    <img src={research} alt="" />
                 </div>
                 <div className="eye-grabber">
                     <h1>Connect,Learn,Recruit in Academia.</h1>
@@ -32,7 +36,7 @@ function MainDashboard(){ return (
                      and collaborative projects.
 
                     </p>
-                    <img src="" alt="" />
+                    <img src='' id='' alt="" />
                 </div>
             </section>
             
@@ -87,9 +91,9 @@ function MainDashboard(){ return (
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. s.
         </div>
         <div class="social-icons">
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
+        <a href="#"><img src='' className='' id='' /></a>
+        <a href="#"><img src='' className='' id='' /></a>
+        <a href="#"><img src='' className='' id='' /></a>
         </div>
     </div>
 
@@ -100,9 +104,9 @@ function MainDashboard(){ return (
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
         </div>
         <div class="social-icons">
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#"></a>
+        <a href="#"><img src='' className='' id='' /></a>
+        <a href="#"><img src='' className='' id='' /></a>
+        <a href="#"><img src='' className='' id='' /></a>
         </div>
     </div>
 </div>
