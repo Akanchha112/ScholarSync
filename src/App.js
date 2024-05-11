@@ -17,7 +17,7 @@ function App() {
         <Route path="/institute" element={<InstituteDash/>} />
         <Route path="/profile" element={<Profile/>} />
 
-        {/* <Route path="/" element={<JobSearch/>}/> */}
+        <Route path="/student" element={<JobSearch/>}/>
 
       </Routes>
       <ToastContainer />

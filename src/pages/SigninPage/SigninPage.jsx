@@ -35,10 +35,12 @@ const SigninPage=()=>{
             await signInWithEmailAndPassword(auth,email, password);
             const user = auth.currentUser;
             console.log(user.uid,role);
+            
             //to check user role
             const userDoc = doc(firestore, "users", user.uid);
             const userSnapshot = await getDoc(userDoc);
-            console.log(userSnapshot)
+            // console.log(userSnapshot)
+
             if (userSnapshot.exists()) {
                 const userData = userSnapshot.data();
                 const userRole = userData.role;

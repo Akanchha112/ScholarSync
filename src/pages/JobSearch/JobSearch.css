@@ -8,7 +8,7 @@
     justify-content: center;
   }
   
-  .card {
+  .JobSearch .card {
     width: 35%;
     margin: 10px;
     padding: 20px;
@@ -17,7 +17,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  input[type='text'] {
+  .JobSearch input[type='text'] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -25,7 +25,7 @@
     border-radius: 5px;
     box-sizing: border-box;
   }
-  .search{
+  .JobSearch .search{
     text-align: center;
   }
 #searchBar{
@@ -35,7 +35,7 @@
     height:40%;
     border-radius: 12px;
 }
-img{
+.JobSearch img{
     width:3%;
     height:3%;
 }
@@ -44,11 +44,11 @@ img{
     align-items: center; 
     justify-content: space-between;
 }
-label{
+.JobSearch label{
     margin:3px;
 }
 
-button{
+.JobSearch button{
     margin-left: auto; 
     color: white;
     border-radius: 12px;
