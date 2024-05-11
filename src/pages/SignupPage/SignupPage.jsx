@@ -5,7 +5,7 @@ import {doc,setDoc} from "firebase/firestore";
 import "./signup.css";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Navbar from '../../components/Navbar/Navbar';
 const SignupPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -55,7 +55,8 @@ const SignupPage = () => {
 
 
 
-  return (
+  return <>
+    <Navbar />
     <div className="signup-container">
       <h2>Sign Up</h2>
       <div className='inputContainer'>
@@ -78,7 +79,7 @@ const SignupPage = () => {
       </div>
       <button onClick={handleSignUp}>Sign Up</button>
     </div>
-  );
+    </>
 };
 
 export default SignupPage;

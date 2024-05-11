@@ -5,7 +5,7 @@ import {doc,getDoc} from "firebase/firestore";
 import "./signin.css";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Navbar from '../../components/Navbar/Navbar';
 const SigninPage=()=>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -61,6 +61,7 @@ const SigninPage=()=>{
     }
 
    return <>
+    <Navbar/>
     <div className="signin-container">
       <h2>Sign In</h2>
       <div className='inputContainer'>
