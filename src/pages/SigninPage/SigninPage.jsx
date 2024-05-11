@@ -44,6 +44,17 @@ const SigninPage=()=>{
                 const userRole = userData.role;
                 if(userRole===role){
                     toast.success("LoggedIn Successfully",{position:"top-center"});
+                    localStorage.setItem('role',role);
+                    // console.log(userData);
+                    localStorage.setItem('userdata',JSON.stringify(userData));  //to store an object
+                    localStorage.setItem('uid',user.uid);
+                    if(role=='institute'){
+                        navigate('/institute')
+                      }else if(role=='student'){
+                        navigate('/student')
+                      }else if(role=='Professor'){
+                        navigate('/professor')
+                      }
                 }
                 else{
                     toast.info("User not found",{position:"top-center"});
@@ -51,7 +62,6 @@ const SigninPage=()=>{
             } 
             else{
                 toast.info("User not found",{position:"top-center"});
-                
             }
             
         }
