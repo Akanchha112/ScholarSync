@@ -55,6 +55,11 @@
   font-size: 14px;
   font-weight: 300;
 }
+.sign-Card input:focus{
+  border-color: #07263B;
+  background-color: #00a2bb;
+  color: #ffffff;
+}
 .sign-Card ::placeholder{
   color: #e5e5e5;
 }
@@ -70,6 +75,10 @@
   cursor: pointer;
   /* color: black; */
 }
+.sign-Card button:hover{
+  background-color: #07263B;
+  color: #ffffff;
+}
 .inputContainer > .errorLabel {
     color: red;
     font-size: 12px;
@@ -79,4 +88,5 @@
   }
   .signnavigator:hover{
     cursor:pointer;
+    color: white;
   }
