@@ -228,6 +228,8 @@ nav {
     font-weight: 500;
   }
   .contactForm{
+    display: block;
+    width: 90%;
     border: none;
     outline: 0;
     font-size: 2rem;
@@ -243,5 +245,13 @@ nav {
     #contact input[type="submit"],
     #contact input[type="email"] {
       margin: 1rem 1rem 0 1rem;
+    }
+    #contact > .flexible {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    #contact > .flexible .contactForm {
+      width: calc(33.33% - 14px); /* Adjusted width for better spacing */
     }
   }
