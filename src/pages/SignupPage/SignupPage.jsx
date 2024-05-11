@@ -50,9 +50,7 @@ const SignupPage = () => {
         navigate('/institute')
       } else if (role == 'student') {
         navigate('/student')
-      } else if (role == 'Professor') {
-        navigate('/professor')
-      }
+      } 
 
       // Redirect or show success message
     } catch (error) {
