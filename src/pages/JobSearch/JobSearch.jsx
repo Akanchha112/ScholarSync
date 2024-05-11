@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const JobSearch = () => {
     const navigate=useNavigate();
     const ViewDetails=()=>{
-        navigate('/ViewDetails');
+        navigate('/Apply');
     }
     const [searchQuery, setSearchQuery] = useState('');
   

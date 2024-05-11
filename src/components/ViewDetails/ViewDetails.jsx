@@ -2,7 +2,13 @@
 import React from 'react';
 import './ViewDetails.css';
 import Navbar from '../Navbar/Navbar';
+import { useNavigate } from 'react-router-dom';
 const ViewDetails = () => {
+  // const navigate=useNavigate();
+  //   const handleApply=()=>{
+  //       navigate('/Apply');
+  //   }
+
   const jobDetails = {
     jobtitle: 'JRF',
     salary: '$100,000',
@@ -10,10 +16,7 @@ const ViewDetails = () => {
     jobdescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
     monthsofjob: 12 // number of months
   };
-
-  const handleApply = () => {
-    console.log('Apply button');
-  };
+  
 
   return <>
     <Navbar />
@@ -29,7 +32,7 @@ const ViewDetails = () => {
         <p className='duration'>Duration: {jobDetails.monthsofjob}</p>
         <p className='description'>Description: {jobDetails.jobdescription}</p>
         
-        <button onClick={handleApply}>Apply</button>
+        <button onClick={navigate('/Apply')}>Apply</button>
       </div>
     </div>
   </>

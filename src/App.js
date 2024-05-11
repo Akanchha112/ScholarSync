@@ -7,6 +7,7 @@ import Profile from './components/profile/Profile';
 import {ToastContainer} from "react-toastify";
 import JobSearch from './pages/JobSearch/JobSearch';
 import ViewDetails from './components/ViewDetails/ViewDetails';
+import Apply from './components/Apply/Apply';
 function App() {
   return (
     <BrowserRouter>
@@ -17,8 +18,9 @@ function App() {
         <Route path="/institute" element={<InstituteDash/>} />
         <Route path="/profile" element={<Profile/>} />
 
-        <Route exact path="/student" element={<JobSearch/>}/>
+        <Route path="/student" element={<JobSearch/>}/>
         <Route path="/ViewDetails" element={<ViewDetails/>}/>
+        <Route path="/Apply" element={<Apply/>}/>
       </Routes>
       <ToastContainer />
     </BrowserRouter>
