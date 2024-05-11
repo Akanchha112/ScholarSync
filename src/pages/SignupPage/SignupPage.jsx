@@ -92,7 +92,7 @@ const SignupPage = () => {
           </select>
         </div>
         <button onClick={handleSignUp}>Sign Up</button>
-        <label>Alreasy have account?<span className='signnavigator' onClick={() => { navigate('/signin') }}> Sign in</span></label>
+        <label>Already have account?<span className='signnavigator' onClick={() => { navigate('/signin') }}> Sign in</span></label>
       </div>
     </div>
   </>
