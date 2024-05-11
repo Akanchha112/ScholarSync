@@ -37,7 +37,6 @@ const ProfJobAdd = () => {
             toast.error(error.message, { position: "bottom-center" });
         }
 
-
     }
     return <>
         <div className="addJobContainer">

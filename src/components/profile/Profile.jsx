@@ -1,11 +1,13 @@
 import "./profile.css"
 import InstituteNav from "../institute/instituteNav/InstituteNav";
 import { useEffect } from "react";
-// import LinkedInIcon from '@mui/icons-material/LinkedIn';
-// import EmailIcon from '@mui/icons-material/Email';
+import ProfNav from "../professor/profNav/ProfNav";
+import {useNavigate} from "react-router-dom";
+
 const Profile = (props) => {
+    const navigate=useNavigate();
     const role = localStorage.getItem('role');
-    console.log(localStorage);
+    // console.log(localStorage);
 
     //to add cdn link
     useEffect(() => {
@@ -19,8 +21,14 @@ const Profile = (props) => {
         };
     }, []);
     const { UserName, CurrentCompany, gitUrl = null, LinkedinID = null, email = null, ImageLink = null, Designation = null, Batch = null, Education = null, PastCompany = null, Description = null, CurrentPosition = null } = localStorage.getItem('userdata') || {};
+
+    const ProfileEditHandle= () =>{
+        const uid=localStorage.getItem('uid');
+        navigate(`/profileedit/${uid}`);
+    }
+
     return <>
-        {role === 'institute' ? <InstituteNav /> : <></>}
+        {role === 'institute' ? <InstituteNav /> : (role === 'professor' ?<ProfNav/>:<></>)}
         <div className="profilecontaitner">
             <main className="profile">
                 <div className="profile-bg"></div>
@@ -53,16 +61,16 @@ const Profile = (props) => {
                         {/* <a href={"mailto:" + email ? email : null}> <EmailIcon /> </a> */}
                         {/* <a href={props.user ? LinkedinID : null}><LinkedInIcon /></a> */}
                         
-                            <a><i className="fa fa-facebook"></i></a>
-                            <a><i className="fa fa-dribbble"></i></a>
-                            <a><i className="fa fa-instagram"></i></a>
+                            
+                            <a><i className="fa fa-envelope"></i></a>
+                            {/* <a><i className="fa fa-instagram"></i></a> */}
                             <a><i className="fa fa-linkedin"></i></a>
-                            <a><i className="fa fa-google"></i></a>
+                            <a><i className="fa fa-twitter"></i></a>
                         
 
                     </div>
 
-
+                    <button onClick={()=>{ProfileEditHandle()}}>Edit</button>
                 </section>
                 {/* <button className="icon close"></button> */}
             </main>
