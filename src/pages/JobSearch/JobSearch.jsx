@@ -24,10 +24,6 @@ const JobSearch = () => {
         card.Jobtitle.toLowerCase().includes(searchQuery.toLowerCase())
       );
     
-    const handleCardClick = (id) => {
-        history.push(`/details/${id}`); // You can specify the route you want to navigate to
-      };
-    
     return <>
       <Navbar/>
       <div className="JobSearch">
