@@ -1,6 +1,6 @@
 import React from 'react';
 import "./MainDashboard.css";
-import research from '../img/research.png';
+import research from '../img/a2.png';
 
 function MainDashboard(){ return ( 
     <main>

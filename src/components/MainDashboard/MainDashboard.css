@@ -27,7 +27,7 @@ nav {
     font-family: "Montserrat", sans-serif;
     background-color:#ffffff;
     text-align: start;
-    min-height: 60rem;
+    min-height: 50rem;
     height: auto;
     margin: 0 auto 5rem auto;
     justify-content: start;
@@ -61,7 +61,7 @@ nav {
     color: #666;
   }
   .eye-grabber-img {
-    flex: 1;
+    flex: 7;
   }
   @media (max-width: 800px) {
     .eye-grabber-img {
