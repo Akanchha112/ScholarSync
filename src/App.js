@@ -21,9 +21,7 @@ function App() {
         <Route path="/student" element={<JobSearch/>}/>
         <Route path="/ViewDetails" element={<ViewDetails/>}/>
         <Route path="/Apply" element={<Apply/>}/>
-        <Route path="/professor" element={<ProfDashboard/>}/>
-        <Route path="/getresponse/:jobId" element={<ViewResponse/>} />
-        
+       
       </Routes>
       <ToastContainer />
     </BrowserRouter>
