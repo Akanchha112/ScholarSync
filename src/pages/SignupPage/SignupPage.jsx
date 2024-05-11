@@ -6,13 +6,15 @@ import "./signup.css";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../../components/Navbar/Navbar';
+import { useNavigate } from 'react-router-dom';
+
 const SignupPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState("student");
+  const [role, setRole] = useState('');
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
-
+  const navigate=useNavigate();
   const handleSignUp = async () => {
     setEmailError('')
     setPasswordError('')
@@ -57,27 +59,31 @@ const SignupPage = () => {
 
   return <>
     <Navbar />
-    <div className="signup-container">
+    
+    <div className="sign-container">
+      <div className='sign-Card'>
       <h2>Sign Up</h2>
       <div className='inputContainer'>
         <label>Email:</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter your email'/>
         <label className="errorLabel">{emailError}</label>
       </div>
       <div className='inputContainer'>
         <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Enter your password' />
         <label className="errorLabel">{passwordError}</label>
       </div>
       <div>
         <label>Role:</label>
-        <select value={role} onChange={(e) => {setRole(e.target.value); console.log(role);}}>
+        <select value={role} onChange={(e) => {setRole(e.target.value); console.log(role);}} placeholder='role'>
           <option value="student">Student</option>
           <option value="professor">Professor</option>
           <option value="institute">Institute</option>
         </select>
       </div>
       <button onClick={handleSignUp}>Sign Up</button>
+      <label>Alreasy have account?<span className='signnavigator' onClick={()=>{navigate('/signin')}}> Sign in</span></label> 
+      </div>
     </div>
     </>
 };

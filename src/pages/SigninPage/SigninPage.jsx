@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import { auth,firestore} from '../../services/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import {doc,getDoc} from "firebase/firestore";
-import "./signin.css";
+import "../SignupPage/signup.css";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../../components/Navbar/Navbar';
+import { useNavigate } from 'react-router-dom';
+
 const SigninPage=()=>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState("student");
     const [emailError, setEmailError] = useState('')
     const [passwordError, setPasswordError] = useState('')
+    const navigate=useNavigate();
 
     const handleSignin=async()=>{
         setEmailError('')
@@ -62,16 +65,17 @@ const SigninPage=()=>{
 
    return <>
     <Navbar/>
-    <div className="signin-container">
+    <div className="sign-container">
+    <div className='sign-Card'>
       <h2>Sign In</h2>
       <div className='inputContainer'>
         <label>Email:</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}  placeholder='Enter your email'/>
         <label className="errorLabel">{emailError}</label>
       </div>
       <div className='inputContainer'>
         <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Enter your password'/>
         <label className="errorLabel">{passwordError}</label>
       </div>
       <div>
@@ -83,6 +87,8 @@ const SigninPage=()=>{
         </select>
       </div>
       <button onClick={handleSignin}>Sign In</button>
+      <label>Don't have account?<span className='signnavigator' onClick={()=>{navigate('/signup')}}> Sign Up</span></label> 
+      </div>
     </div>
 </>
 }
