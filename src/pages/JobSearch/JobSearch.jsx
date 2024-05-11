@@ -40,9 +40,9 @@ const JobSearch = () => {
         
         </div>
         
-        <div className="card-container">
+        <div className="card-container" id="card-container">
           {filteredCards.map((card) => (
-            <div key={card.id} className="card">
+            <div key={card.id} className="card" id="card">
               <h2 className='Jobtitle'>{card.Jobtitle}</h2>
 
               <p  className='salary'>{card.salary}</p>
