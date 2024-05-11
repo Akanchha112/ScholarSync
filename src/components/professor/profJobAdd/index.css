@@ -1,6 +1,6 @@
-.addProfContainer {
+.addJobContainer {
     width: 100%;
-    height: 170px;
+    height: 270px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,7 @@
     
 }
 
-.subcontainerAdd {
+.subcontainerJob {
 
     /* max-width: 500px; */
     width: 50%;
@@ -16,13 +16,13 @@
     background-color: white;
     box-shadow: 0 20px 40px -20px rgba(14, 0, 47, 0.11);
     /* padding: 50px 35px; */
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    /* align-items: center; */
-    flex-direction: column;
+    align-items: center; */
+    /* flex-direction: column; */
 }
 
-.subcontainerAdd h1 {
+.subcontainerJob h1 {
     font-size: 32px;
     font-weight: 600;
     margin: 0;
@@ -30,15 +30,23 @@
     text-align: center;
 }
 
-.subcontainerAdd label {
+.addJobContainer  form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 10px;
+  }
+
+.subcontainerJob label {
     /* color: #ffffff; */
     display: block;
-    margin-top: 5px;
+    margin-top: 8px;
     font-size: 14px;
     font-weight: 500;
 }
 
-.subcontainerAdd input {
+.subcontainerJob input {
     display: block;
     height: 30px;
     width: 80%;
@@ -51,8 +59,21 @@
     margin: 0 30px 0 0;
 }
 
-.subcontainerAdd button {
-    margin: 19px 0 0 8px;
+.subcontainerJob textarea{
+    display: block;
+    height: 70px;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 2px;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0 30px 0 0;
+}
+
+.subcontainerJob button {
+    margin: 9px 0 0 0px;
     width: 80px;
 
     background-color: #07263B;
@@ -65,23 +86,17 @@
     /* color: black; */
 }
 
-.subcontainerAdd button:hover {
+.subcontainerJob button:hover {
     background-color: #00a2bb;
     color: #ffffff;
 }
 
-.subcontainerAdd .errorLabel {
+.subcontainerJob .errorLabel {
     margin-top: 10px;
     color: red;
     font-size: 10px;
 }
 
-.addProfContainer  form {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 10px;
-  }
+
   
   

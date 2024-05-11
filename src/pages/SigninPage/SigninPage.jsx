@@ -27,15 +27,15 @@ const SigninPage=()=>{
             setPasswordError('Password length must be 6')
             return
         }
-        if(role=="professor"){
-            toast.error("Contact your university to register your mail");
-            return
-        }
+        // if(role=="professor"){
+        //     toast.error("Contact your university to register your mail");
+        //     return
+        // }
         try{
             await signInWithEmailAndPassword(auth,email, password);
             const user = auth.currentUser;
             console.log(user.uid,role);
-            
+
             //to check user role
             const userDoc = doc(firestore, "users", user.uid);
             const userSnapshot = await getDoc(userDoc);
@@ -44,6 +44,7 @@ const SigninPage=()=>{
             if (userSnapshot.exists()) {
                 const userData = userSnapshot.data();
                 const userRole = userData.role;
+                console.log(userRole,role);
                 if(userRole===role){
                     toast.success("LoggedIn Successfully",{position:"top-center"});
                     localStorage.setItem('role',role);
@@ -54,7 +55,7 @@ const SigninPage=()=>{
                         navigate('/institute')
                       }else if(role=='student'){
                         navigate('/student')
-                      }else if(role=='Professor'){
+                      }else if(role=='professor'){
                         navigate('/professor')
                       }
                 }

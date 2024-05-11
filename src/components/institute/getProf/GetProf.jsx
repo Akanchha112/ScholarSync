@@ -1,11 +1,11 @@
 import './index.css';
 import { useEffect, useState } from 'react';
 import { auth, firestore } from '../../../services/firebase';
-import {collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
 const GetProf = () => {
     const [professor, setProfessors] = useState([]);
     const instituteId = localStorage.getItem('uid'); // Replace with your institute ID
-    console.log(instituteId);
+    // console.log(instituteId);
     useEffect(() => {
         const fetchProfessors = async () => {
             try {
@@ -13,18 +13,18 @@ const GetProf = () => {
                     const professorsRef = collection(firestore, "users");
                     const q = query(professorsRef, where("role", "==", "professor"), where("institueid", "==", instituteId));
                     const querySnapshot = await getDocs(q);
-                  
+
                     const professors = [];
                     querySnapshot.forEach((doc) => {
-                      professors.push(doc.data());
+                        professors.push(doc.data());
                     });
                     setProfessors(professors)
                     return professors;
-                  };
-                  
-                  fetchProfessors(instituteId).then((professors) => {
+                };
+
+                fetchProfessors(instituteId).then((professors) => {
                     console.log("Professors:", professors);
-                  });
+                });
                 // setProfessors(professorsData);
             } catch (error) {
                 console.error('Error fetching professors:', error);
