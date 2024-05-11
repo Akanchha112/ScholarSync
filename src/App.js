@@ -11,13 +11,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<LandingPage />}/>
+        <Route path="/" element={<LandingPage />}/>
         <Route path="/signup" element={<SignupPage/>} />
         <Route path="/signin" element={<SigninPage/>} />
         <Route path="/institute" element={<InstituteDash/>} />
-        <Route path="/profile" element={<Profile/>} /> */}
+        <Route path="/profile" element={<Profile/>} />
 
-        <Route exact path="/" element={<JobSearch/>}/>
+        <Route exact path="/student" element={<JobSearch/>}/>
         <Route path="/ViewDetails" element={<ViewDetails/>}/>
       </Routes>
       <ToastContainer />
