@@ -1,34 +1,48 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import "./index.css"
-import { doc, collection, query, where, getDocs, deleteDoc } from "firebase/firestore";
+import { doc, collection, query, where, getDocs, getDoc,updateDoc } from "firebase/firestore";
 import { firestore } from '../../../services/firebase';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, Link } from 'react-router-dom'
 import BeatLoader from "react-spinners/BeatLoader";
 
+
 const GetRes = () => {
     const [responses, setresponses] = useState([]);
     const [loading, setloading] = useState(true);
     const { jobId } = useParams();
-    console.log(jobId);
+
     // Use jobId to fetch data related to the job
     useEffect(() => {
-
+        //fetch candidate data
+        const getUserdata = async (userid) => {
+            setloading(true);
+            const userDoc = doc(firestore, "users", userid);
+            const userSnapshot = await getDoc(userDoc);
+            const userData = userSnapshot.data();
+            return userData;
+        }
+        //fetch all pending responses
         const fetchResponse = async () => {
             try {
                 // setloading(true);
                 const fetchResponse = async (jobId) => {
+
                     const ResponseRef = collection(firestore, "response");
-                    const q = query(ResponseRef, where("jobId", "==", jobId));
+                    const q = query(ResponseRef, where("jobId", "==", jobId), where("status", "==", "pending"));
                     const querySnapshot = await getDocs(q);
 
                     const Response = [];
-                    querySnapshot.forEach((doc) => {
-                        console.log(doc.data())
-                        Response.push(doc);
-                    });//doc.data(),doc.ref.id
+                    querySnapshot.forEach(async (doc) => {
+                        // console.log(doc.data())
+                        const userid = doc.data().userId;
+                        const userData = await getUserdata(userid);
+                        const combinedData = { userData, responseData: doc };
+                        console.log(combinedData);
+                        Response.push(combinedData);
+                    });
 
                     setresponses(Response)
 
@@ -48,11 +62,46 @@ const GetRes = () => {
 
         fetchResponse();
     }, []);
+
+    //loading 
     useEffect(() => {
+        setloading(true);
         setTimeout(() => {
             setloading(false);
-        }, 1500);
-    }, [])
+        }, 5000);
+    }, [responses])
+
+
+
+    //accept
+    const handleAccept=async(responseid)=>{
+        try{
+            await updateDoc(doc(firestore, "response", responseid), {              // to save user credentials in database
+                status:"accepted"
+            });
+            toast.success("Accepted Application", { position: "top-center" });
+        }catch (error) {
+            console.error(error);
+            toast.success(error.msg, { position: "bottom-corner" });
+          }
+        
+    }
+    //reject
+    const handleReject=async(responseid)=>{
+        try{
+            await updateDoc(doc(firestore, "response", responseid), {              // to save user credentials in database
+                status:"rejected"
+              });
+              toast.success("Rejected Application", { position: "top-center" });
+        }catch (error) {
+            console.error(error);
+            toast.success(error.msg, { position: "bottom-corner" });
+          }
+        
+    }
+
+
+
     return (
         <div className='professorsResponse'>
             {loading ?
@@ -69,19 +118,20 @@ const GetRes = () => {
 
                     <ul className='subcontainer'>
 
-                        {responses.map((response, index) => (
+                        {!loading && responses.length !== 0 ? responses.map((response, index) => (
 
-                            <li key={index} className="eachresponse">
-
-                                {/* <h3>{response.data().postion}</h3> */}
-                                <p>Description: {response.data().questoin1}</p>
-                                <p>Status: {response.data().answer1}</p>
-                                <p>Stipend: {response.data().question2}</p>
-                                <p>Duration: {response.data().answer2}</p>
-                                {/* <button onClick={() => { handleClose(job.ref.id) }}>Close Job</button> */}
-                                {/* <button onClick={() => { handleResponse(job.ref.id) }}>Responses</button> */}
-                            </li>
-                        ))}
+                            <p key={index} className="eachresponse">
+                                <h3>Reponse {index+1}</h3>
+                                <p><strong>Name:</strong> {response.userData.name}</p>
+                                <p><strong>Email:</strong> {response.userData.email}</p>
+                                <p><strong>Question 1:</strong> {response.responseData.data().questoin1}</p>
+                                <p><strong>Answer 1:</strong> {response.responseData.data().answer1}</p>
+                                <p><strong>Question 2:</strong> {response.responseData.data().question2}</p>
+                                <p><strong>Answer 2:</strong> {response.responseData.data().answer2}</p>
+                                <button onClick={() => { handleAccept(response.responseData.ref.id) }}>Accept</button>
+                                <button onClick={() => { handleReject(response.responseData.ref.id) }}>Reject</button>
+                            </p>
+                        )) : <h3>No Response received yet</h3>}
 
                     </ul>
 

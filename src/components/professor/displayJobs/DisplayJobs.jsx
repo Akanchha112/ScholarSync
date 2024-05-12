@@ -9,7 +9,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 
 const DisplayJobs = () => {
     const [jobs, setJobs] = useState([]);
-    const [loading, setloading] = useState(true);
+    const [loading, setloading] = useState(false);
     const profid = localStorage.getItem('uid');
     const navigate = useNavigate();
     // console.log(profid);
@@ -49,9 +49,10 @@ const DisplayJobs = () => {
     }, []);
 
     useEffect(() => {
+        setloading(true)
         setTimeout(() => {
             setloading(false);
-        }, 1500);
+        }, 2000);
     }, [])
     const handleClose = async (jobId) => {
         try {
@@ -83,7 +84,7 @@ const DisplayJobs = () => {
                     <h2>Jobs</h2>
 
                     <ul className='subcontainer'>
-                        {jobs.length !== 0?jobs.map((job, index) => (
+                        {!loading && jobs.length !== 0?jobs.map((job, index) => (
 
                             <li key={index} className="eachjob">
 

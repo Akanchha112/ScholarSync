@@ -19,6 +19,7 @@ const ApplyForm = ({ onSubmit }) => {
 
   const question1 = "Why should you be hired for this role?";
   const question2 = "Are you available for the stipulated time period?";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setloading(true);
@@ -27,6 +28,7 @@ const ApplyForm = ({ onSubmit }) => {
       answer1: question,
       question2: question2,
       answer2: availability,
+      status:"pending",
       jobId: jobId,
       userId: uid
     }

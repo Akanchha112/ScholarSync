@@ -24,12 +24,12 @@
     align-items: center;
     flex-direction: column;
     padding: 20px;
-    width: 100%;
+    width: 80%;
 }
-.professorsResponse-container .eachjob h3{
+.professorsResponse-container .eachresponse h3{
  font-size: 18px;
 }
-.professorsResponse-container .eachjob p{
+.professorsResponse-container .eachresponse p{
     font-size: 16px;
 }
 .professorsResponse-container button{

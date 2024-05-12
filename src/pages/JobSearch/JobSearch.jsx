@@ -1,13 +1,27 @@
 import './JobSearch.css';
 import StuNav from '../../components/student/studentNav/StuNav';
-import React, { useState, useEffect } from 'react';
-import {  firestore } from '../../services/firebase';
-import {  collection, query, where, getDocs } from "firebase/firestore";
+import React, { useState, useEffect,CSSProperties } from 'react';
+import { firestore } from '../../services/firebase';
+import { collection, query, where, getDocs } from "firebase/firestore";
 // import search from '../../components/img/search.jpg';
 import { useHistory } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import BeatLoader from "react-spinners/BeatLoader";
+
+
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  padding: "0 auto",
+  position:"fixed",
+  left:"45%"
+
+};
+
+
 const JobSearch = () => {
   const navigate = useNavigate();
+  const [loading, setloading] = useState(false);
   const ViewDetails = (jobId) => {
     navigate(`/ViewDetails/${jobId}`);
   }
@@ -44,6 +58,12 @@ const JobSearch = () => {
 
     fetchJobs();
   }, []);
+  useEffect(() => {
+    setloading(true)
+    setTimeout(() => {
+      setloading(false);
+    }, 2000);
+  }, [])
 
   const handleSearchInputChange = (e) => {
     setSearchQuery(e.target.value);
@@ -55,7 +75,7 @@ const JobSearch = () => {
   );
 
   return <>
-   <StuNav/>
+    <StuNav />
     <div className="JobSearch">
       <div className='search'>
         {/* <img src={search} className='searchIcon' alt=""/> */}
@@ -69,24 +89,36 @@ const JobSearch = () => {
         />
 
       </div>
+      {loading ?
 
-      <div className="card-container" id="card-container">
-        {filteredCards.map((job) => (
-          <div key={job.ref.id} className="card" id="card">
-            <h2 className='Jobtitle'>{job.data().postion}</h2>
+        <BeatLoader
+          color="#00a2bb"
+          loading={loading}
+          cssOverride={override}
+          size={20}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+        :
+        <div className="card-container" id="card-container">
 
-            <p className='salary'>${job.data().stipend}</p>
+          {filteredCards.map((job) => (
+            <div key={job.ref.id} className="card" id="card">
+              <h2 className='Jobtitle'>{job.data().postion}</h2>
 
-            <div className='JobstatusDiv'>
-              <label className='status'>Status:</label>
-              <p className='Jobstatus'>{job.data().status}</p>
-              <button onClick={() => { ViewDetails(job.ref.id) }}>View Details</button>
+              <p className='salary'>${job.data().stipend}</p>
+
+              <div className='JobstatusDiv'>
+                <label className='status'>Status:</label>
+                <p className='Jobstatus'>{job.data().status}</p>
+                <button onClick={() => { ViewDetails(job.ref.id) }}>View Details</button>
+              </div>
+
+
             </div>
-
-
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      }
     </div>
   </>
 };

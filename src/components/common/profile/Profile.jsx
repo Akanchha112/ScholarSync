@@ -4,7 +4,7 @@ import InstituteNav from "../../institute/instituteNav/InstituteNav";
 import StuNav from "../../student/studentNav/StuNav";
 import ProfNav from "../../professor/profNav/ProfNav";
 import { useNavigate } from "react-router-dom";
-import { doc, collection, query, where, getDoc } from "firebase/firestore";
+import { doc,  getDoc } from "firebase/firestore";
 import { firestore } from '../../../services/firebase';
 
 import BeatLoader from "react-spinners/BeatLoader";
