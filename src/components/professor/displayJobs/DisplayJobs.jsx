@@ -86,7 +86,7 @@ const DisplayJobs = () => {
                     <ul className='subcontainer'>
                         {!loading && jobs.length !== 0?jobs.map((job, index) => (
 
-                            <li key={index} className="eachjob">
+                            <p key={index} className="eachjob">
 
                                 <h3>{job.data().postion}</h3>
                                 <p>Description: {job.data().description}</p>
@@ -95,7 +95,7 @@ const DisplayJobs = () => {
                                 <p>Duration: {job.data().duration}</p>
                                 <button onClick={() => { handleClose(job.ref.id) }}>Close Job</button>
                                 <button onClick={() => { handleResponse(job.ref.id) }}>Responses</button>
-                            </li>
+                            </p>
                         )):<h3>No Jobs Posted Yet</h3>}
                     </ul>
 

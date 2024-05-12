@@ -60,11 +60,11 @@ const GetProf = () => {
                     <ul className='subcontainer'>
                         {professor.map((Professor, index) => (
 
-                            <li key={index} className="eachprof">
+                            <p key={index} className="eachprof">
                                 <h3>Professor {index+1}</h3>
                                 <p>{Professor.name?Professor.name:<></>}     <i>{Professor.qualification?Professor.qualification:<></>}</i> </p>
                                 <p>Email: {Professor.email}</p>
-                            </li>
+                            </p>
                         ))}
                     </ul>
                 </div>

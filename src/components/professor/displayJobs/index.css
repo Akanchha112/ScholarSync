@@ -13,7 +13,7 @@
 .professorsjobs-container h2{
     font-size: 32px;
     font-weight: 600;
-    margin: 0;
+    margin: 10px 0;
     line-height: 42px;
     text-align: center;
 }
@@ -27,7 +27,11 @@
     width: 100%;
 }
 .professorsjobs-container .eachjob{
+    padding: 10px 0 15px 0;
+    width: 90%;
     margin-bottom: 30px;
+    border-bottom: 3px solid #01A7C2;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 .professorsjobs-container .eachjob h3{
  font-size: 18px;
