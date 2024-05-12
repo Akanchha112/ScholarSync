@@ -49,30 +49,20 @@ const ApplyForm = ({ onSubmit }) => {
 
   return (
     <>
-      <StuNav />
-      <div className="apply-form-container">
-        {loading ?
-          <BeatLoader
-            color="#00a2bb"
-            loading={loading}
-            size={20}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-          />
-          :
-          <div className="apply-form-card">
-            <h2>Application</h2>
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="question">{question1}</label>
-              <textarea id="question" rows="4" value={question} onChange={(e) => setquestion(e.target.value)} required></textarea>
-              <br />
-              <label htmlFor="availability">{question2}</label>
-              <textarea id="availability" rows="4" value={availability} onChange={(e) => setavailability(e.target.value)} required></textarea>
-              <button type="submit">Submit</button>
-            </form>
-          </div>
-        }
+    <StuNav/>
+    <div className="apply-form-container">
+      <div className="apply-form-card">
+        <h2>Application</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="question">{question1}</label>
+          <textarea id="question" rows="4" value={question} onChange={(e) => setquestion(e.target.value)} required></textarea>
+          <br />
+          <label htmlFor="availability">{question2}</label>
+          <textarea id="availability" rows="4" value={availability} onChange={(e) => setavailability(e.target.value)} required></textarea>
+          <button type="submit">Submit</button>
+        </form>
       </div>
+    </div>
     </>
   );
 };

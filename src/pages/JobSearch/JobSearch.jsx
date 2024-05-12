@@ -75,10 +75,10 @@ const JobSearch = () => {
           <div key={job.ref.id} className="card" id="card">
             <h2 className='Jobtitle'>{job.data().postion}</h2>
 
-            <p className='salary'>{job.data().stipend}</p>
+            <p className='salary'>${job.data().stipend}</p>
 
             <div className='JobstatusDiv'>
-              <label className=''>Status:</label>
+              <label className='status'>Status:</label>
               <p className='Jobstatus'>{job.data().status}</p>
               <button onClick={() => { ViewDetails(job.ref.id) }}>View Details</button>
             </div>

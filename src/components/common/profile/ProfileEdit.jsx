@@ -62,7 +62,7 @@ const ProfileEdit = () => {
                         </div>:<></>}
                         
                         {role!="institute"?<div>
-                            <label>qualification</label>
+                            <label>Qualification</label>
                             <input type="text" value={qualification} onChange={(e) => setqualification(e.target.value)} placeholder='Enter highest qualification' required />
                         </div>:<></>}
                         {role=="institute"?<div>

@@ -6,17 +6,19 @@
     color: #fff;
   }
   .job-details-container .description{
-    color: #fff;
+    color: #000000;
   }
   .job-details-card {
-    background-color:#01A7C2;
+    background-color: #d8eaff;
     padding: 25px;
-    border: 2px solid #fff; /* Set border color to white and visible */
+    border: 2px solid #01A7C2;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px; 
-    height: max-content; 
+    max-width: 700px; 
+    height: 250px;
+    max-height: max-content; 
     text-align: left; 
+    color:black;
   }
   
   .job-details-card h2 {
@@ -34,13 +36,14 @@
     color: #fff;
     border: none;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 18px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
     display: block; 
     margin: 0 auto; 
     font-weight: bold;
+    
   }
   
   .job-details-card button:hover {

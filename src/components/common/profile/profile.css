@@ -107,3 +107,9 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.profile{
+background-color: #d8eaff;}
+.areaOfWork,  .Qualification{
+  font-size: 17px;
+  color:black;
+}

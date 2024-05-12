@@ -85,8 +85,8 @@ const Profile = (props) => {
                     {role !== 'institute' && (<div className="otherInfo">
                         
                         
-                            <h3>Qualification:<span> {qualification ? qualification : "no information"}</span></h3>
-                            <h3>College:<span> {College ? College : "no information"}</span></h3>
+                            <h3 className="Qualification">Qualification:<span> {qualification ? qualification : "no information"}</span></h3>
+                            <h3 className="Qualification">College:<span> {College ? College : "no information"}</span></h3>
                         
 
                     </div>)}
