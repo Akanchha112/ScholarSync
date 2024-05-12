@@ -46,12 +46,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
+  /* margin-bottom: 18px; */
 }
 .profile-image{
   margin: 30px 0 0 0;
   animation: loadProfileImage 1s ease-in-out 1s;
   animation-fill-mode: both;
+}
+.areaOfWork{
+  color: black;
+  font-size: 15px;
 }
 .profile-image img{
   width: 8vw;
@@ -61,10 +65,7 @@
 .first-name{
   font-size: 26px;
 }
-.companyInfo{
-  color: rgb(166, 166, 166);
-  font-size: 20px;
-}
+
 .description{
   color: rgb(112, 112, 112);
   font-size: 14px;

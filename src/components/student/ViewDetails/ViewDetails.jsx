@@ -1,7 +1,7 @@
 //jobsearch->view details
 import {useEffect,useState} from 'react';
 import './ViewDetails.css';
-import Navbar from '../../common/Navbar/Navbar';
+import StuNav from '../studentNav/StuNav';
 import { useNavigate ,useParams} from 'react-router-dom';
 import {  firestore } from '../../../services/firebase';
 import {    getDoc,doc } from "firebase/firestore";
@@ -39,7 +39,7 @@ const ViewDetails = () => {
   
   // const jobId=job.ref.id;
   return <>
-    <Navbar />
+    <StuNav/>
     <div className="job-details-container">
       <div className="job-details-card">
 

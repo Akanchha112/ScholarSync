@@ -1,5 +1,5 @@
 import './JobSearch.css';
-import Navbar from '../../components/common/Navbar/Navbar';
+import StuNav from '../../components/student/studentNav/StuNav';
 import React, { useState, useEffect } from 'react';
 import {  firestore } from '../../services/firebase';
 import {  collection, query, where, getDocs } from "firebase/firestore";
@@ -55,7 +55,7 @@ const JobSearch = () => {
   );
 
   return <>
-    <Navbar />
+   <StuNav/>
     <div className="JobSearch">
       <div className='search'>
         {/* <img src={search} className='searchIcon' alt=""/> */}

@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import { firestore } from '../../../services/firebase';
 import { collection, doc, setDoc } from "firebase/firestore";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import StuNav from '../studentNav/StuNav';
 import './Apply.css';
 const ApplyForm = ({ onSubmit }) => {
+  const navigate=useNavigate();
   const [question, setquestion] = useState('');
   const [availability, setavailability] = useState('');
   console.log(question, availability)
@@ -33,7 +34,7 @@ const ApplyForm = ({ onSubmit }) => {
       setquestion('');
       setavailability('');
      
-
+      navigate('/student')
     } catch (error) {
       console.error(error);
       toast.error(error.message, { position: "bottom-center" });
@@ -42,6 +43,8 @@ const ApplyForm = ({ onSubmit }) => {
 
 
   return (
+    <>
+    <StuNav/>
     <div className="apply-form-container">
       <div className="apply-form-card">
         <h2>Application</h2>
@@ -55,6 +58,7 @@ const ApplyForm = ({ onSubmit }) => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

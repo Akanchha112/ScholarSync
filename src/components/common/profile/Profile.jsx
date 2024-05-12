@@ -1,13 +1,23 @@
 import "./profile.css"
+import { useState, useEffect } from 'react';
 import InstituteNav from "../../institute/instituteNav/InstituteNav";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import ProfNav from "../../professor/profNav/ProfNav";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { doc, collection, query, where, getDoc } from "firebase/firestore";
+import { firestore } from '../../../services/firebase';
+
 
 const Profile = (props) => {
-    const navigate=useNavigate();
+    const navigate = useNavigate();
+    const [user, setUser] = useState({});
     const role = localStorage.getItem('role');
-    // console.log(localStorage);
+    const uid = localStorage.getItem('uid');
+    const [Name, setName] = useState(null);
+    const [description, setDescription] = useState(null);
+    const [College, setCollege] = useState(null);
+    const [qualification, setQualification] = useState(null);
+    const [areaOfWork, setAreaOfWork] = useState(null);
 
     //to add cdn link
     useEffect(() => {
@@ -20,15 +30,37 @@ const Profile = (props) => {
             document.head.removeChild(link);
         };
     }, []);
-    const { UserName, CurrentCompany, gitUrl = null, LinkedinID = null, email = null, ImageLink = null, Designation = null, Batch = null, Education = null, PastCompany = null, Description = null, CurrentPosition = null } = localStorage.getItem('userdata') || {};
+    // var { Name = null, description = null, Education = null, College = null, qualification = null, areaOfWork = null } = {};
+    useEffect(() => {
+        const fetchdata = async () => {
+            try {
+                const userDoc = doc(firestore, "users", uid);
+                const userSnapshot = await getDoc(userDoc);
+                const userData = userSnapshot.data();
+                
 
-    const ProfileEditHandle= () =>{
-        const uid=localStorage.getItem('uid');
+                setName(userData.name);
+                setDescription(userData.description);
+                if (role !== 'institute') {
+                    setCollege(userData.college);
+                    setQualification(userData.qualification);
+                    setAreaOfWork(userData.areaofWork);
+                    console.log(userData.areaofWork)
+                }
+
+            } catch (error) {
+                console.error('Error fetching professors:', error);
+            }
+        }
+        fetchdata();
+    }, []);
+    const ProfileEditHandle = () => {
+        const uid = localStorage.getItem('uid');
         navigate(`/profileedit/${uid}`);
     }
 
     return <>
-        {role === 'institute' ? <InstituteNav /> : (role === 'professor' ?<ProfNav/>:<></>)}
+        {role === 'institute' ? <InstituteNav /> : (role === 'professor' ? <ProfNav /> : <></>)}
         <div className="profilecontaitner">
             <main className="profile">
                 <div className="profile-bg"></div>
@@ -41,36 +73,35 @@ const Profile = (props) => {
 
                     </aside>
                     <section className="profile-info">
-                        <h1 className="first-name">Avnish</h1>
+                        <h2 className="first-name">{Name}</h2>
 
-                        {/* {props.user ? <h2 className="companyInfo">{CurrentPosition} @ {CurrentCompany}</h2 > : <h2 className="companyInfo">ABOUT</h2>} */}
+                        <div className="areaOfWork">Area of Work: {areaOfWork} </div >
 
                     </section>
                     <p className="profile-info description">
-                        {Description ? Description : <div> hello, I'm {props.user ? UserName : null}, artist and developer 🌼 student at stanford; intern at zynga 🌱 happy to be here! 🌿 let's code the best we can!</div>}
+                        
+                        {description ? description : <div> hello, I'm {Name? Name : null}, artist and my major {areaOfWork}. </div>}
                     </p>
-                    <div className="otherInfo">
-                        {/* <h3>Worked at: <span> {PastCompany ? PastCompany : "no information"}</span></h3>
-                    <h3>Batch:<span> {Batch ? Batch : "no information"}</span></h3> */}
-                        {role !== 'institute' && (
-                            <h3>College:<span> {Education ? Education : "no information"}</span></h3>
-                        )}
+                    {role !== 'institute' && (<div className="otherInfo">
+                        
+                        
+                            <h3>Qualification:<span> {qualification ? qualification : "no information"}</span></h3>
+                            <h3>College:<span> {College ? College : "no information"}</span></h3>
+                        
 
-                    </div>
+                    </div>)}
                     <div className="social-profile">
-                        {/* <a href={"mailto:" + email ? email : null}> <EmailIcon /> </a> */}
-                        {/* <a href={props.user ? LinkedinID : null}><LinkedInIcon /></a> */}
-                        
-                            
-                            <a><i className="fa fa-envelope"></i></a>
-                            {/* <a><i className="fa fa-instagram"></i></a> */}
-                            <a><i className="fa fa-linkedin"></i></a>
-                            <a><i className="fa fa-twitter"></i></a>
-                        
+               
+
+                        <a><i className="fa fa-envelope"></i></a>
+                        {/* <a><i className="fa fa-instagram"></i></a> */}
+                        <a><i className="fa fa-linkedin"></i></a>
+                        <a><i className="fa fa-twitter"></i></a>
+
 
                     </div>
 
-                    <button onClick={()=>{ProfileEditHandle()}}>Edit</button>
+                    <button onClick={() => { ProfileEditHandle() }}>Edit</button>
                 </section>
                 {/* <button className="icon close"></button> */}
             </main>
