@@ -5,7 +5,7 @@ import {doc,getDoc} from "firebase/firestore";
 import "../SignupPage/signup.css";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Navbar from '../../components/Navbar/Navbar';
+import Navbar from '../../components/common/Navbar/Navbar';
 import { useNavigate } from 'react-router-dom';
 
 const SigninPage=()=>{

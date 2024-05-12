@@ -1,6 +1,7 @@
 import React from 'react';
-import '../../Navbar/Navbar.css';
-import logo from '../../img/logo.png';
+import '../../common/Navbar/Navbar.css';
+import logo from '../../common/img/logo.png'
+// import logo from '../../../common/img/logo.png';
 import { useNavigate } from 'react-router-dom';
 
 function ProfNav(){

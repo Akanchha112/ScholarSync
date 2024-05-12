@@ -5,13 +5,13 @@ import { doc, setDoc } from "firebase/firestore";
 import "./signup.css";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Navbar from '../../components/Navbar/Navbar';
+import Navbar from '../../components/common/Navbar/Navbar';
 import { useNavigate } from 'react-router-dom';
 
 const SignupPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('');
+  const [role, setRole] = useState('student');
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
   const navigate = useNavigate();
@@ -48,7 +48,8 @@ const SignupPage = () => {
       toast.success("Registered Successfully", { position: "top-center" });
       if (role == 'institute') {
         navigate('/institute')
-      } else if (role == 'student') {
+      } 
+      if (role == 'student') {
         navigate('/student')
       } 
 

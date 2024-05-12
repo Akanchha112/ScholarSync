@@ -1,7 +1,7 @@
 import "./Landing.css"
-import Navbar from '../../components/Navbar/Navbar';
-import MainDashboard from '../../components/MainDashboard/MainDashboard';
-import Footer from '../../components/Footer/Footer';
+import Navbar from '../../components/common/Navbar/Navbar';
+import MainDashboard from '../../components/common/MainDashboard/MainDashboard';
+import Footer from '../../components/common/Footer/Footer';
 const LandingPage = () => {
     return (<>
         <Navbar />

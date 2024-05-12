@@ -1,7 +1,7 @@
 import "./profile.css"
-import InstituteNav from "../institute/instituteNav/InstituteNav";
+import InstituteNav from "../../institute/instituteNav/InstituteNav";
 import { useEffect } from "react";
-import ProfNav from "../professor/profNav/ProfNav";
+import ProfNav from "../../professor/profNav/ProfNav";
 import {useNavigate} from "react-router-dom";
 
 const Profile = (props) => {

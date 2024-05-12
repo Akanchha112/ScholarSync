@@ -2,9 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
+    color: #fff;
   }
-  .job-details-container, .description{
+  .job-details-container .description{
     color: #fff;
   }
   .job-details-card {
