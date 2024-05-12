@@ -7,7 +7,11 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import BeatLoader from "react-spinners/BeatLoader";
 
-
+const override: CSSProperties = {
+  margin: "0 auto",
+  position:"absolute",
+  left:"50%"
+};
 
 
 
@@ -87,7 +91,7 @@ const JobSearch = () => {
         <BeatLoader
           color="#00a2bb"
           loading={loading}
-          
+          cssOverride={override}
           size={20}
           aria-label="Loading Spinner"
           data-testid="loader"
