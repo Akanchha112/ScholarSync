@@ -1,8 +1,12 @@
 import React from 'react';
-import '../../common/Navbar/Navbar.css';
+
 import logo from '../../common/img/logo.png'
-// import logo from '../../../common/img/logo.png';
 import { useNavigate } from 'react-router-dom';
+import { signOut } from "firebase/auth";
+import { auth } from '../../../services/firebase';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import '../../common/Navbar/Navbar.css';
 
 function StuNav(){
     const navigate=useNavigate();
@@ -12,6 +16,18 @@ function StuNav(){
     }
     const homehandle=()=>{
         navigate('/student');
+    }
+    const logouthandle = () => {
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            navigate("/");
+            console.log("Signed out successfully")
+            toast.success("Signed out Successfully", { position: "top-center" });
+        }).catch((error) => {
+            // An error happened.
+            console.error(error);
+            toast.success(error.msg, { position: "bottom-center" });
+        });
     }
     return(
         <div id="navbar">
@@ -24,6 +40,7 @@ function StuNav(){
                     /></a> 
                 <nav id="nav-bar">
                     <a href="#about" className="nav-link" onClick={()=>{profilehandle()}} >Profile</a>
+                    <a href="#connect" className="nav-link" onClick={() => { logouthandle() }}>Logout</a>
                     {/* <a href="#connect" className="nav-link" onClick={()=>{homehandle()}}>Connect</a>
                     <a href="#contact" className="nav-link" onClick={()=>{homehandle()}}>Contact Us</a>
                     <a href="#" className="nav-link" onClick={()=>{loginhandle()}} >Login</a>
