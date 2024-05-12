@@ -33,7 +33,7 @@ function MainDashboard(){ return (
                      and collaborative projects.
 
                     </p>
-                    <img src="" alt="" />
+                    
                 </div>
             </section>
             
@@ -42,7 +42,7 @@ function MainDashboard(){ return (
                 <div className="sec-content-div">
                     <div className="bars">
                         <div className="icon-container">
-                            <img src="" alt="" />
+                            
                         </div>
                         <div className="txt-container">
                             <h5>Learn</h5>
