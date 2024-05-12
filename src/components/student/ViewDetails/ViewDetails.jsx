@@ -52,7 +52,7 @@ const ViewDetails = () => {
         <p className='duration'>Duration: {job.duration}</p>
         <p className='description'>Description: {job.description}</p>
         
-        <button onClick={()=>{navigate(`/Apply/${jobId}`)}}>Apply</button>
+        <button className="applybtn" onClick={()=>{navigate(`/Apply/${jobId}`)}}>Apply</button>
       </div>
     </div>
   </>
