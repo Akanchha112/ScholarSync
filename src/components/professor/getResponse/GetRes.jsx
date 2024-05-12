@@ -10,14 +10,15 @@ import BeatLoader from "react-spinners/BeatLoader";
 
 const GetRes = () => {
     const [responses, setresponses] = useState([]);
-    const [loading, setloading] = useState(false);
+    const [loading, setloading] = useState(true);
     const { jobId } = useParams();
     console.log(jobId);
     // Use jobId to fetch data related to the job
     useEffect(() => {
+
         const fetchResponse = async () => {
             try {
-                setloading(true);
+                // setloading(true);
                 const fetchResponse = async (jobId) => {
                     const ResponseRef = collection(firestore, "response");
                     const q = query(ResponseRef, where("jobId", "==", jobId));
@@ -30,7 +31,7 @@ const GetRes = () => {
                     });//doc.data(),doc.ref.id
 
                     setresponses(Response)
-                    setloading(false);
+
                     return Response;
                 };
 
@@ -39,25 +40,35 @@ const GetRes = () => {
             } catch (error) {
                 console.error('Error fetching professors:', error);
             }
-            setloading(false);
+            finally {
+                // setloading(false);
+            }
+
         };
 
         fetchResponse();
     }, []);
+    useEffect(() => {
+        setTimeout(() => {
+            setloading(false);
+        }, 2000);
+    }, [])
     return (
         <div className='professorsResponse'>
             {loading ?
                 <BeatLoader
                     color="#00a2bb"
                     loading={loading}
-                    size={50}
+                    size={20}
                     aria-label="Loading Spinner"
                     data-testid="loader"
                 />
                 :
                 <div className="professorsResponse-container">
                     <h2>Responses</h2>
+
                     <ul className='subcontainer'>
+
                         {responses.map((response, index) => (
 
                             <li key={index} className="eachresponse">
@@ -71,7 +82,9 @@ const GetRes = () => {
                                 {/* <button onClick={() => { handleResponse(job.ref.id) }}>Responses</button> */}
                             </li>
                         ))}
+
                     </ul>
+
                 </div>
             }
         </div>

@@ -6,6 +6,7 @@ import ProfNav from "../../professor/profNav/ProfNav";
 import { useNavigate } from "react-router-dom";
 import { doc, collection, query, where, getDoc } from "firebase/firestore";
 import { firestore } from '../../../services/firebase';
+import StuNav from "../../student/studentNav/StuNav";
 
 
 const Profile = (props) => {
@@ -60,7 +61,7 @@ const Profile = (props) => {
     }
 
     return <>
-        {role === 'institute' ? <InstituteNav /> : (role === 'professor' ? <ProfNav /> : <></>)}
+        {role === 'institute' ? <InstituteNav /> : (role === 'professor' ? <ProfNav /> : <StuNav/>)}
         <div className="profilecontaitner">
             <main className="profile">
                 <div className="profile-bg"></div>

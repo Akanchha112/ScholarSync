@@ -26,11 +26,16 @@
     padding: 20px 30px;
     width: 100%;
 }
+.professorsjobs-container .eachjob{
+    margin-bottom: 30px;
+}
 .professorsjobs-container .eachjob h3{
  font-size: 18px;
 }
 .professorsjobs-container .eachjob p{
+    width: 90%;
     font-size: 16px;
+    /* word-break: break-all; */
 }
 .professorsjobs-container button{
     width: 90px;

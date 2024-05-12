@@ -19,6 +19,7 @@
     max-height: max-content; 
     text-align: left; 
     color:black;
+    height: max-content;
   }
   
   .job-details-card h2 {

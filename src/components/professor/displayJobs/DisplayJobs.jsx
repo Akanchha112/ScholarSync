@@ -9,16 +9,16 @@ import BeatLoader from "react-spinners/BeatLoader";
 
 const DisplayJobs = () => {
     const [jobs, setJobs] = useState([]);
-    const [loading, setloading] = useState(false);
+    const [loading, setloading] = useState(true);
     const profid = localStorage.getItem('uid');
     const navigate = useNavigate();
     // console.log(profid);
-    
+
     useEffect(() => {
-        setloading(true);
+
         const fetchJobs = async () => {
             try {
-                
+
                 const fetchJobs = async (profid) => {
                     const JobsRef = collection(firestore, "jobs");
                     const q = query(JobsRef, where("status", "==", "open"), where("professorid", "==", profid));
@@ -31,7 +31,7 @@ const DisplayJobs = () => {
                     });//doc.data(),doc.ref.id
                     // console.log(jobs)
                     setJobs(jobs)
-                    setloading(false);
+
                     return jobs;
                 };
 
@@ -42,12 +42,17 @@ const DisplayJobs = () => {
             } catch (error) {
                 console.error('Error fetching professors:', error);
             }
-            setloading(false);
+
         };
 
         fetchJobs();
     }, []);
 
+    useEffect(() => {
+        setTimeout(() => {
+            setloading(false);
+        }, 2000);
+    }, [])
     const handleClose = async (jobId) => {
         try {
             await deleteDoc(doc(firestore, "jobs", jobId));
@@ -64,19 +69,19 @@ const DisplayJobs = () => {
 
     return <>
         <div className='professorsjobs'>
-            
-                <div className="professorsjobs-container">
-                    <h2>Jobs</h2>
-                    {loading ?
-                    
+            {loading ?
+
                 <BeatLoader
                     color="#00a2bb"
                     loading={loading}
-                    size={50}
+                    size={20}
                     aria-label="Loading Spinner"
                     data-testid="loader"
                 />
                 :
+                <div className="professorsjobs-container">
+                    <h2>Jobs</h2>
+
                     <ul className='subcontainer'>
                         {jobs.map((job, index) => (
 
@@ -92,9 +97,9 @@ const DisplayJobs = () => {
                             </li>
                         ))}
                     </ul>
-}
+
                 </div>
-            
+            }
         </div>
     </>
 }

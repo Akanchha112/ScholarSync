@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
 }
 
 .apply-form-card {
@@ -26,6 +26,7 @@
 }
 
 .apply-form-card label {
+  font-size: 16px;
   margin-bottom: 5px;
 }
 
