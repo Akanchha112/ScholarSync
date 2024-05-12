@@ -1,7 +1,12 @@
 .JobSearch{
     text-align: left;
   }
-  
+  .Jobtitle{
+    font-size: 20px;
+  }
+  .card >.salary, .JobstatusDiv > .status , .JobstatusDiv > .Jobstatus{
+    font-size: 17px;
+  }
 #card-container {
     display: flex;
     flex-wrap: wrap;
@@ -12,9 +17,11 @@
     width: 35%;
     margin: 10px;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #d8eaff;
+    border: 2px solid #01A7C2;
+    /* border-radius: 8px; */
   }
   
   .JobSearch input[type='text'] {
