@@ -11,6 +11,7 @@ import {ToastContainer} from "react-toastify";
 import JobSearch from './pages/JobSearch/JobSearch';
 import ViewDetails from './components/student/ViewDetails/ViewDetails';
 import Apply from './components/student/Apply/Apply';
+import Applied from './components/student/Applied/Applied';
 function App() {
   return (
     <BrowserRouter>
@@ -25,7 +26,7 @@ function App() {
 
         <Route path="/ViewDetails/:jobId" element={<ViewDetails/>}/>
         <Route path="/Apply/:jobId" element={<Apply/>}/>
-       
+        <Route path="/Applied" element={<Applied/>}/>
 
         <Route path="/professor" element={<ProfDashboard/>}/>
         <Route path="/getresponse/:jobId" element={<ViewResponse/>} />

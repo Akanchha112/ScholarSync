@@ -5,7 +5,6 @@ import { doc, collection, query, where, getDocs, getDoc,updateDoc } from "fireba
 import { firestore } from '../../../services/firebase';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate, Link } from 'react-router-dom'
 import BeatLoader from "react-spinners/BeatLoader";
 
 

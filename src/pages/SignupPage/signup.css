@@ -1,27 +1,27 @@
 
-.sign-container{
+.signup-container{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 80vh;
+  /* width: 100vw; */
+  height: 100vh;
   
 }
-.sign-Card{
-  height: 60%;
+.signup-Card{
+  height: 70%;
     width: 300px;
     background-color: #01A7C2;
     position: absolute;
     transform: translate(-50%,-50%);
-    top: 60%;
+    top: 64%;
     left: 50%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
+    padding: 30px 35px 60px 35px;
 }
-.sign-Card *{
+.signup-Card *{
   font-family: 'Poppins',sans-serif;
   
   letter-spacing: 0.5px;
@@ -29,7 +29,7 @@
   border: none;
 }
 
-.sign-Card h2{
+.signup-Card h2{
   color: #ffffff;
   font-size: 32px;
   font-weight: 500;
@@ -37,14 +37,14 @@
   line-height: 42px;
   text-align: center;
 }
-.sign-Card label{
+.signup-Card label{
   color: #ffffff;
   display: block;
   margin-top: 20px;
   font-size: 16px;
   font-weight: 500;
 }
-.sign-Card input{
+.signup-Card input{
   display: block;
   height: 50px;
   width: 100%;
@@ -55,15 +55,15 @@
   font-size: 14px;
   font-weight: 300;
 }
-.sign-Card input:focus{
+.signup-Card input:focus{
   border-color: #07263B;
   background-color: #00a2bb;
   color: #ffffff;
 }
-.sign-Card ::placeholder{
+.signup-Card ::placeholder{
   color: #e5e5e5;
 }
-.sign-Card button{
+.signup-Card button{
   margin-top: 30px;
   width: 100%;
   background-color: #ffffff;
@@ -75,7 +75,7 @@
   cursor: pointer;
   /* color: black; */
 }
-.sign-Card button:hover{
+.signup-Card button:hover{
   background-color: #07263B;
   color: #ffffff;
 }

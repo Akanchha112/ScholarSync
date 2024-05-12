@@ -17,6 +17,9 @@ function StuNav(){
     const homehandle=()=>{
         navigate('/student');
     }
+    const appliedhandle=()=>{
+        navigate('/Applied');
+    }
     const logouthandle = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
@@ -39,12 +42,10 @@ function StuNav(){
                         id="Navbar-img"
                     /></a> 
                 <nav id="nav-bar">
+                    <a href="#" className="nav-link" onClick={()=>{appliedhandle()}}>Applied</a>
                     <a href="#about" className="nav-link" onClick={()=>{profilehandle()}} >Profile</a>
-                    <a href="#connect" className="nav-link" onClick={() => { logouthandle() }}>Logout</a>
-                    {/* <a href="#connect" className="nav-link" onClick={()=>{homehandle()}}>Connect</a>
-                    <a href="#contact" className="nav-link" onClick={()=>{homehandle()}}>Contact Us</a>
-                    <a href="#" className="nav-link" onClick={()=>{loginhandle()}} >Login</a>
-                    <a href="#" className="nav-link" onClick={()=>{signuphandle()}} >SignUp</a> */}
+                    <a href="#" className="nav-link" onClick={() => { logouthandle() }}>Logout</a>
+                
                 </nav>
             </div>
         </div>

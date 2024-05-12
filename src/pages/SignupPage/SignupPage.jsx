@@ -8,8 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../../components/common/Navbar/Navbar';
 import { useNavigate } from 'react-router-dom';
 import BeatLoader from "react-spinners/BeatLoader";
-
+import Footer from "../../components/common/Footer/Footer";
 const SignupPage = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('student');
@@ -42,6 +43,7 @@ const SignupPage = () => {
 
       if (user) {
         await setDoc(doc(firestore, "users", user.uid), {              // to save user credentials in database
+          name:name,
           email: user.email,
           role: role
         });
@@ -76,7 +78,7 @@ const SignupPage = () => {
   return <>
     <Navbar />
 
-    <div className="sign-container">
+    <div className="signup-container">
       {loading ?
         <BeatLoader
           color="#00a2bb"
@@ -86,8 +88,12 @@ const SignupPage = () => {
           data-testid="loader"
         />
         :
-        <div className='sign-Card'>
+        <div className='signup-Card'>
           <h2>Sign Up</h2>
+          <div className='inputContainer'>
+            <label>Name:</label>
+            <input type="name" value={name} onChange={(e) => setName(e.target.value)} placeholder='Enter your Name' />
+          </div>
           <div className='inputContainer'>
             <label>Email:</label>
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter your email' />
@@ -100,7 +106,7 @@ const SignupPage = () => {
           </div>
           <div>
             <label>Role:</label>
-            <select value={role} onChange={(e) => { setRole(e.target.value); console.log(role); }} placeholder='role'>
+            <select value={role} onChange={(e) => { setRole(e.target.value);  }} placeholder='role'>
               <option value="student">Student</option>
               <option value="professor">Professor</option>
               <option value="institute">Institute</option>
@@ -111,6 +117,8 @@ const SignupPage = () => {
         </div>
       }
     </div>
+    
+    <Footer/>
   </>
 };
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { auth, firestore } from '../../services/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { doc, getDoc } from "firebase/firestore";
-import "../SignupPage/signup.css";
+import "./signin.css";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../../components/common/Navbar/Navbar';
@@ -80,7 +80,7 @@ const SigninPage = () => {
 
   return <>
     <Navbar />
-    <div className="sign-container">
+    <div className="signin-container">
       {loading ?
         <BeatLoader
           color="#00a2bb"
@@ -90,7 +90,7 @@ const SigninPage = () => {
           data-testid="loader"
         />
         :
-        <div className='sign-Card'>
+        <div className='signin-Card'>
           <h2>Sign In</h2>
           <div className='inputContainer'>
             <label>Email:</label>

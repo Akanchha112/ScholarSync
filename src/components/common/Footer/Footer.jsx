@@ -5,11 +5,11 @@ function Footer(){
     return(
         <footer>
             <div className='main-div'> 
-                <div className='contactIcons'>
+                {/* <div className='contactIcons'>
                 <img src="" alt-text="email"/>
                 <img src="" alt-text="" />
                 <img src="" alt-text="" />
-                </div>
+                </div> */}
                 
                 <div className='contactName' id=''>
                 Created by

@@ -4,19 +4,11 @@ import React, { useState, useEffect,CSSProperties } from 'react';
 import { firestore } from '../../services/firebase';
 import { collection, query, where, getDocs } from "firebase/firestore";
 // import search from '../../components/img/search.jpg';
-import { useHistory } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import BeatLoader from "react-spinners/BeatLoader";
 
 
-const override: CSSProperties = {
-  display: "block",
-  margin: "0 auto",
-  padding: "0 auto",
-  position:"fixed",
-  left:"45%"
 
-};
 
 
 const JobSearch = () => {
@@ -76,6 +68,7 @@ const JobSearch = () => {
 
   return <>
     <StuNav />
+    <div className='JobSearch-Main'></div>
     <div className="JobSearch">
       <div className='search'>
         {/* <img src={search} className='searchIcon' alt=""/> */}
@@ -94,7 +87,7 @@ const JobSearch = () => {
         <BeatLoader
           color="#00a2bb"
           loading={loading}
-          cssOverride={override}
+          
           size={20}
           aria-label="Loading Spinner"
           data-testid="loader"
@@ -119,6 +112,7 @@ const JobSearch = () => {
           ))}
         </div>
       }
+      
     </div>
   </>
 };

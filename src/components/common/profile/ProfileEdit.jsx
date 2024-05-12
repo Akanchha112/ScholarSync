@@ -15,7 +15,7 @@ const ProfileEdit = () => {
     const role=localStorage.getItem('role');
     // console.log(role);
 
-    const [Name, setName] = useState('');
+
     const [description, setDescription] = useState('');
     const [College, setCollege] = useState('');
     const [qualification, setqualification] = useState('');
@@ -27,13 +27,12 @@ const ProfileEdit = () => {
         try{
             if(role=='institute'){
                 await updateDoc(doc(firestore, "users", uid), {              // to save user credentials in database
-                    name: Name,
                     description: description
                   });
             }
             else{
                 await updateDoc(doc(firestore, "users", uid), {              // to save user credentials in database
-                    name: Name,
+
                     description: description,
                     college: College,
                     qualification: qualification,
@@ -56,10 +55,7 @@ const ProfileEdit = () => {
                 <h1>Edit Profile</h1>
                 <form onSubmit={handleAdd}>
                     <div>
-                        <div>
-                            <label>Name</label>
-                            <input type="text" value={Name} onChange={(e) => setName(e.target.value)} placeholder='Enter Name' required />
-                        </div>
+                        
                         {role!="institute"?<div>
                             <label>College</label>
                             <input type="text" value={College} onChange={(e) => setCollege(e.target.value)} placeholder='Enter College' required />
