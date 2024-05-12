@@ -51,11 +51,13 @@
   max-width: max-content;
   margin-left: 40%;
   margin-top: 10px;
+  font-size: 18px;
 }
 
 .apply-form-card button:hover {
   background-color:#03576e;
 }
-.formQuestion{
-  font-size: 17px;
+
+.question{
+  font-size: 18px;
 }

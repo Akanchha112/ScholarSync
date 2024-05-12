@@ -49,12 +49,12 @@ const ApplyForm = ({ onSubmit }) => {
       <div className="apply-form-card">
         <h2>Application</h2>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="question">{question1}</label>
+          <label className="question" htmlFor="question">{question1}</label>
           <textarea id="question" rows="4" value={question} onChange={(e) => setquestion(e.target.value)} required></textarea>
           <br />
-          <label htmlFor="availability">{question2}</label>
+          <label className="question" htmlFor="availability">{question2}</label>
           <textarea id="availability" rows="4" value={availability} onChange={(e) => setavailability(e.target.value)} required></textarea>
-          <button type="submit">Submit</button>
+          <button className="buttonSubmit" type="submit">Submit</button>
         </form>
       </div>
     </div>
