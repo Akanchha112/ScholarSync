@@ -51,7 +51,7 @@ const GetRes = () => {
     useEffect(() => {
         setTimeout(() => {
             setloading(false);
-        }, 2000);
+        }, 1500);
     }, [])
     return (
         <div className='professorsResponse'>

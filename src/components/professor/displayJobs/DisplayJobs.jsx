@@ -51,7 +51,7 @@ const DisplayJobs = () => {
     useEffect(() => {
         setTimeout(() => {
             setloading(false);
-        }, 2000);
+        }, 1500);
     }, [])
     const handleClose = async (jobId) => {
         try {
@@ -83,7 +83,7 @@ const DisplayJobs = () => {
                     <h2>Jobs</h2>
 
                     <ul className='subcontainer'>
-                        {jobs.map((job, index) => (
+                        {jobs.length !== 0?jobs.map((job, index) => (
 
                             <li key={index} className="eachjob">
 
@@ -95,7 +95,7 @@ const DisplayJobs = () => {
                                 <button onClick={() => { handleClose(job.ref.id) }}>Close Job</button>
                                 <button onClick={() => { handleResponse(job.ref.id) }}>Responses</button>
                             </li>
-                        ))}
+                        )):<h3>No Jobs Posted Yet</h3>}
                     </ul>
 
                 </div>

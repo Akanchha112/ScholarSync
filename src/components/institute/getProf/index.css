@@ -13,7 +13,7 @@
 .istituteprofessors-container h2{
     font-size: 32px;
     font-weight: 600;
-    margin: 0;
+    margin: 10px 0;
     line-height: 42px;
     text-align: center;
 }
@@ -21,9 +21,9 @@
     display: flex;
     /* flex-wrap: wrap; */
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
-    padding: 20px;
+    padding: 20px 40px;
     width: 100%;
 }
 .istituteprofessors-container .eachprof h3{

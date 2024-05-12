@@ -5,12 +5,15 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { firestore } from '../../../services/firebase';
 import { doc, updateDoc } from "firebase/firestore";
+import InstituteNav from "../../institute/instituteNav/InstituteNav";
+import StuNav from "../../student/studentNav/StuNav";
+import ProfNav from "../../professor/profNav/ProfNav";
 
 const ProfileEdit = () => {
     const navigate = useNavigate();
     const { uid } = useParams();
     const role=localStorage.getItem('role');
-    console.log(role);
+    // console.log(role);
 
     const [Name, setName] = useState('');
     const [description, setDescription] = useState('');
@@ -18,7 +21,7 @@ const ProfileEdit = () => {
     const [qualification, setqualification] = useState('');
     const [areaofWork, setareaofWork] = useState('');
     
-    console.log(uid)
+    // console.log(uid)
     const handleAdd =async(e)=>{
         e.preventDefault();
         try{
@@ -47,6 +50,7 @@ const ProfileEdit = () => {
     }
 
     return <>
+        {role === 'institute' ? <InstituteNav /> : (role === 'professor' ? <ProfNav /> : <StuNav />)}
         <div className="ProfileEditContainer">
             <div className="subcontainerProfileEdit">
                 <h1>Edit Profile</h1>

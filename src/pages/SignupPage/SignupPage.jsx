@@ -81,7 +81,7 @@ const SignupPage = () => {
         <BeatLoader
           color="#00a2bb"
           loading={loading}
-          size={30}
+          size={20}
           aria-label="Loading Spinner"
           data-testid="loader"
         />

@@ -1,13 +1,13 @@
 import "./profile.css"
 import { useState, useEffect } from 'react';
 import InstituteNav from "../../institute/instituteNav/InstituteNav";
-// import { useEffect } from "react";
+import StuNav from "../../student/studentNav/StuNav";
 import ProfNav from "../../professor/profNav/ProfNav";
 import { useNavigate } from "react-router-dom";
 import { doc, collection, query, where, getDoc } from "firebase/firestore";
 import { firestore } from '../../../services/firebase';
-import StuNav from "../../student/studentNav/StuNav";
 
+import BeatLoader from "react-spinners/BeatLoader";
 
 const Profile = (props) => {
     const navigate = useNavigate();
@@ -19,6 +19,7 @@ const Profile = (props) => {
     const [College, setCollege] = useState(null);
     const [qualification, setQualification] = useState(null);
     const [areaOfWork, setAreaOfWork] = useState(null);
+    const [loading, setloading] = useState(true);
 
     //to add cdn link
     useEffect(() => {
@@ -38,7 +39,7 @@ const Profile = (props) => {
                 const userDoc = doc(firestore, "users", uid);
                 const userSnapshot = await getDoc(userDoc);
                 const userData = userSnapshot.data();
-                
+
 
                 setName(userData.name);
                 setDescription(userData.description);
@@ -55,57 +56,75 @@ const Profile = (props) => {
         }
         fetchdata();
     }, []);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setloading(false);
+        }, 1500);
+    }, [])
+
     const ProfileEditHandle = () => {
         const uid = localStorage.getItem('uid');
         navigate(`/profileedit/${uid}`);
     }
 
     return <>
-        {role === 'institute' ? <InstituteNav /> : (role === 'professor' ? <ProfNav /> : <StuNav/>)}
+        {role === 'institute' ? <InstituteNav /> : (role === 'professor' ? <ProfNav /> : <StuNav />)}
         <div className="profilecontaitner">
-            <main className="profile">
-                <div className="profile-bg"></div>
-                <section className="container">
-                    <aside className="profile-image">
-                        <img
-                            src={"https://images.pexels.com/photos/8114406/pexels-photo-8114406.jpeg?auto=compress&cs=tinysrgb&w=600"}
+            {loading ?
 
-                        />
+                <BeatLoader
+                    color="#00a2bb"
+                    loading={loading}
+                    size={20}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
+                />
+                :
+                <main className="profile">
+                    <div className="profile-bg"></div>
+                    <section className="container">
+                        <aside className="profile-image">
+                            <img
+                                src={"https://images.pexels.com/photos/8114406/pexels-photo-8114406.jpeg?auto=compress&cs=tinysrgb&w=600"}
 
-                    </aside>
-                    <section className="profile-info">
-                        <h2 className="first-name">{Name}</h2>
+                            />
 
-                        <div className="areaOfWork">Area of Work: {areaOfWork} </div >
+                        </aside>
+                        <section className="profile-info">
+                            <h2 className="first-name">{Name}</h2>
 
+                            <div className="areaOfWork">Area of Work: {areaOfWork} </div >
+
+                        </section>
+                        <p className="profile-info description">
+
+                            {description ? description : <div> hello, I'm {Name ? Name : null} and my major {areaOfWork}. </div>}
+                        </p>
+                        {role !== 'institute' && (<div className="otherInfo">
+
+
+                        <span><h3 className="Qualification">Qualification: {qualification ? qualification : "no information"}</h3></span>
+                            <span><h3 className="Qualification">College: {College ? College : "no information"}</h3></span>
+
+
+                        </div>)}
+                        <div className="social-profile">
+
+
+                            <a><i className="fa fa-envelope"></i></a>
+                            {/* <a><i className="fa fa-instagram"></i></a> */}
+                            <a><i className="fa fa-linkedin"></i></a>
+                            <a><i className="fa fa-twitter"></i></a>
+
+
+                        </div>
+
+                        <button onClick={() => { ProfileEditHandle() }}>Edit</button>
                     </section>
-                    <p className="profile-info description">
-                        
-                        {description ? description : <div> hello, I'm {Name? Name : null}, artist and my major {areaOfWork}. </div>}
-                    </p>
-                    {role !== 'institute' && (<div className="otherInfo">
-                        
-                        
-                            <h3 className="Qualification">Qualification:<span> {qualification ? qualification : "no information"}</span></h3>
-                            <h3 className="Qualification">College:<span> {College ? College : "no information"}</span></h3>
-                        
-
-                    </div>)}
-                    <div className="social-profile">
-               
-
-                        <a><i className="fa fa-envelope"></i></a>
-                        {/* <a><i className="fa fa-instagram"></i></a> */}
-                        <a><i className="fa fa-linkedin"></i></a>
-                        <a><i className="fa fa-twitter"></i></a>
-
-
-                    </div>
-
-                    <button onClick={() => { ProfileEditHandle() }}>Edit</button>
-                </section>
-                {/* <button className="icon close"></button> */}
-            </main>
+                    {/* <button className="icon close"></button> */}
+                </main>
+            }
         </div>
     </>
 }

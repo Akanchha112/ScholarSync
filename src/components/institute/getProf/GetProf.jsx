@@ -2,10 +2,13 @@ import './index.css';
 import { useEffect, useState } from 'react';
 import { auth, firestore } from '../../../services/firebase';
 import { collection, query, where, getDocs } from "firebase/firestore";
+import BeatLoader from "react-spinners/BeatLoader";
+
 const GetProf = () => {
     const [professor, setProfessors] = useState([]);
     const instituteId = localStorage.getItem('uid'); // Replace with your institute ID
-    // console.log(instituteId);
+    const [loading, setloading] = useState(true);
+
     useEffect(() => {
         const fetchProfessors = async () => {
             try {
@@ -34,20 +37,38 @@ const GetProf = () => {
         fetchProfessors();
     }, [instituteId]);
 
+    useEffect(() => {
+        setTimeout(() => {
+            setloading(false);
+        }, 2000);
+    }, [])
+
     return (
         <div className='istituteprofessors'>
-            <div className="istituteprofessors-container">
-                <h2>Professors</h2>
-                <ul className='subcontainer'>
-                    {professor.map((Professor, index) => (
+            {loading ?
 
-                        <li key={index} className="eachprof">
-                            <h3>Professor</h3>
-                            <p>Email: {Professor.email}</p>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+                <BeatLoader
+                    color="#00a2bb"
+                    loading={loading}
+                    size={20}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
+                />
+                :
+                <div className="istituteprofessors-container">
+                    <h2>Professors</h2>
+                    <ul className='subcontainer'>
+                        {professor.map((Professor, index) => (
+
+                            <li key={index} className="eachprof">
+                                <h3>Professor {index+1}</h3>
+                                <p>{Professor.name?Professor.name:<></>}     <i>{Professor.qualification?Professor.qualification:<></>}</i> </p>
+                                <p>Email: {Professor.email}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            }
         </div>
     );
 }
