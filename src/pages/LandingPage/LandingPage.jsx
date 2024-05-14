@@ -6,7 +6,7 @@ const LandingPage = () => {
     return (<>
         <Navbar />
         <MainDashboard />
-        <Footer />
+{/*         <Footer /> */}
 
     </>
     )
