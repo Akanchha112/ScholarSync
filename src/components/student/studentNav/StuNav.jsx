@@ -23,6 +23,7 @@ function StuNav(){
     const logouthandle = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
+            localStorage.clear();
             navigate("/");
             console.log("Signed out successfully")
             toast.success("Signed out Successfully", { position: "top-center" });

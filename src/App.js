@@ -12,6 +12,8 @@ import JobSearch from './pages/JobSearch/JobSearch';
 import ViewDetails from './components/student/ViewDetails/ViewDetails';
 import Apply from './components/student/Apply/Apply';
 import Applied from './components/student/Applied/Applied';
+import Secure from './components/common/Secure/Secure';
+
 function App() {
   return (
     <BrowserRouter>
@@ -19,17 +21,17 @@ function App() {
         <Route path="/" element={<LandingPage />}/>
         <Route path="/signup" element={<SignupPage/>} />
         <Route path="/signin" element={<SigninPage/>} />
-        <Route path="/institute" element={<InstituteDash/>} />
-        <Route path="/profile" element={<Profile/>} />
-        <Route path='/profileedit/:uid' element={<ProfileEdit />} />
-        <Route path="/student" element={<JobSearch/>}/>
+        <Route path="/institute" element={< Secure component = {InstituteDash} />} />
+        <Route path="/profile" element={< Secure component = {Profile} />} />
+        <Route path='/profileedit/:uid' element={< Secure component = {ProfileEdit} />} />
+        <Route path="/student" element={< Secure component = {JobSearch} />}/>
 
-        <Route path="/ViewDetails/:jobId" element={<ViewDetails/>}/>
-        <Route path="/Apply/:jobId" element={<Apply/>}/>
-        <Route path="/Applied" element={<Applied/>}/>
+        <Route path="/ViewDetails/:jobId" element={< Secure component = {ViewDetails} />}/>
+        <Route path="/Apply/:jobId" element={< Secure component = {Apply} />}/>
+        <Route path="/Applied" element={< Secure component = {Applied} />}/>
 
-        <Route path="/professor" element={<ProfDashboard/>}/>
-        <Route path="/getresponse/:jobId" element={<ViewResponse/>} />
+        <Route path="/professor" element={< Secure component = {ProfDashboard} />}/>
+        <Route path="/getresponse/:jobId" element={< Secure component = {ViewResponse} />} />
 
       </Routes>
       <ToastContainer />

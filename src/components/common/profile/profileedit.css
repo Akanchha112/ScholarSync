@@ -12,7 +12,7 @@
     padding:15px 15px;
     /* max-width: 500px; */
     width: 50%;
-    height: 270px;
+    height: max-content;
     background-color: #d8eaff;
     box-shadow: 0 20px 40px -20px rgba(14, 0, 47, 0.11);
     /* padding: 50px 35px; */
@@ -32,8 +32,9 @@
 
 .ProfileEditContainer  form {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    /* align-items: center; */
     justify-content: space-around;
     padding-bottom: 10px;
   }
@@ -49,7 +50,7 @@
 .subcontainerProfileEdit input {
     display: block;
     height: 30px;
-    width: 80%;
+    width: 100%;
     background-color: rgba(255, 255, 255, 0.07);
     border-radius: 3px;
     padding: 0 10px;
@@ -62,7 +63,7 @@
 .subcontainerProfileEdit textarea{
     display: block;
     height: 70px;
-    width: 80%;
+    width: 100%;
     background-color: rgba(255, 255, 255, 0.07);
     border-radius: 3px;
     padding: 0 10px;
