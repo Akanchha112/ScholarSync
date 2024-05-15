@@ -69,3 +69,12 @@
     background-color: #01A7C2;
     cursor: pointer;
 }
+@media only screen and (max-width: 450px){
+  .JobSearch .card {
+    width: 70%;
+  }
+  .JobSearch button{
+    padding:8px 10px;
+    border-radius: 8px;
+  }
+}

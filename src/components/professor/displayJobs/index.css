@@ -52,3 +52,14 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 900px){
+    .professorsjobs-container{
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 350px){
+    .professorsjobs-container{
+        width: 90%;
+    }
+}

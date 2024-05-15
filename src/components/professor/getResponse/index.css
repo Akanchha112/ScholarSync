@@ -10,6 +10,16 @@
     box-shadow: 0 6px 31px -2px rgba(0, 0, 0, 0.1);
 
 }
+@media only screen and (max-width: 750px){
+    .professorsResponse-container{
+        width: 66%;
+    }
+}
+@media only screen and (max-width: 450px){
+    .professorsResponse-container{
+        width: 80%;
+    }
+}
 .professorsResponse-container h2{
     font-size: 32px;
     font-weight: 600;

@@ -3,7 +3,11 @@
     width: auto;
     margin: 0 auto;
 }
-
+@media only screen and (max-width: 350px){
+  .navbar {
+    height: 60px;
+  }
+}
 @media (max-width: 991px) {
     .Navbar-content-div {
       max-width: 75rem;
@@ -17,6 +21,11 @@
   @media (max-width: 800px) {
     #navbar-img{
       height: .5rem;
+    }
+  }
+  @media (max-width: 400px) {
+    #navbar-img{
+      height: .2rem;
     }
   }
   #navbar {

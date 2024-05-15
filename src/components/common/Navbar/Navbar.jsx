@@ -22,7 +22,8 @@ function Navbar(){
                         src={logo}
                         alt="ScholarSync Logo"
                         id="Navbar-img"
-                    /></a> 
+                    />
+                </a> 
                 <nav id="nav-bar">
                     <a href="#about" className="nav-link" onClick={()=>{homehandle()}}>About</a>
                     <a href="#connect" className="nav-link" onClick={()=>{homehandle()}}>Connect</a>
