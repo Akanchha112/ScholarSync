@@ -21,6 +21,16 @@
     align-items: center; */
     /* flex-direction: column; */
 }
+@media only screen and (max-width: 750px){
+    .subcontainerProfileEdit{
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 450px){
+    .subcontainerProfileEdit{
+        width: 80%;
+    }
+}
 
 .subcontainerProfileEdit h1 {
     font-size: 32px;

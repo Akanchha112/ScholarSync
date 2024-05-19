@@ -1,0 +1,8 @@
+.Navbar-content-div{
+    margin: 0 80px;
+}
+@media (max-width: 608px){
+    .Navbar-content-div{
+        margin: 0 ;
+    }
+}

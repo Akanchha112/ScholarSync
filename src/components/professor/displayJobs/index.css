@@ -62,4 +62,8 @@
     .professorsjobs-container{
         width: 90%;
     }
+    .professorsjobs-container .subcontainer{
+        width: 90%;
+    }
+    
 }

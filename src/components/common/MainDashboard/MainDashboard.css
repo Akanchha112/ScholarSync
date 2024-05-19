@@ -50,6 +50,7 @@ nav {
       padding-bottom: 8rem;
     }
   }
+  
   .eye-grabber h1 {
     font-size: 5rem;
     line-height: 1.5;
@@ -66,6 +67,38 @@ nav {
   @media (max-width: 800px) {
     .eye-grabber-img {
       width: 100%;
+    }
+  }
+  @media (max-width: 600px) {
+    .eye-grabber h1 {
+      font-size: 4rem;
+    }
+    .eye-grabber h2 {
+      font-size: 2.3rem;
+    }
+  }
+  @media (max-width: 450px) {
+    .eye-grabber {
+      overflow: auto;
+      max-width: max-content;
+      padding: 0 10px;
+      font-size: 2rem;
+      text-align: center;
+    }
+    .eye-grabber h1 {
+      font-size: 3.2rem;
+    }
+    .eye-grabber h2 {
+      font-size: 1.7rem;
+    }
+  }
+  @media (max-width: 350px) {
+    
+    .eye-grabber h1 {
+      font-size: 2.7rem;
+    }
+    .eye-grabber h2 {
+      font-size: 1.5rem;
     }
   }
   .eye-grabber-img img {
