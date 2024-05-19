@@ -79,7 +79,7 @@
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 858px) {
   .Navbar-content-div {
     display: flex;
       justify-content: space-between;
