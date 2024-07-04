@@ -6,7 +6,7 @@ function MainDashboard(){ return (
     <main>
             <section id="home-sec" className="flexible home-sec">
                 <div className="eye-grabber-img">
-                    <img src={research} alt="" />
+                    <img src="https://media.istockphoto.com/id/1994770394/vector/business-solution-strategy-businessmen-planning-testing-startup-ideas-and-analyzing.jpg?s=612x612&w=0&k=20&c=j1K2iVRWY4c5C7qIuYCVne3GtsF4JI8q1s1DP80jO4U=" alt="" />
                 </div>
                 <div className="eye-grabber">
                     <h1>Connect,Learn,Recruit in Academia.</h1>
